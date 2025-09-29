@@ -4,17 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const hero = document.querySelector('.hero');
         if (!hero) return;
         
-        for (let i = 0; i < 20; i++) {
+        // Limpar bolhas existentes
+        const existingBubbles = document.querySelectorAll('.bubble');
+        existingBubbles.forEach(bubble => bubble.remove());
+        
+        // Verificar se é um dispositivo móvel
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) return; // Não criar bolhas em dispositivos móveis
+        
+        // Número de bolhas baseado no tamanho da tela
+        const bubbleCount = Math.floor(window.innerWidth / 30); // Aproximadamente 1 bolha a cada 30px
+        
+        // Criar fragmento de documento para melhorar a performance
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < bubbleCount; i++) {
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
             
-            // Tamanho aleatório entre 10px e 40px
-            const size = Math.random() * 30 + 10;
+            // Tamanho aleatório entre 5px e 30px
+            const size = Math.random() * 25 + 5;
             
             // Posição aleatória na tela
             const posX = Math.random() * 100;
             const delay = Math.random() * 15;
-            const duration = Math.random() * 10 + 10;
+            const duration = Math.random() * 15 + 10; // 10-25 segundos
             
             // Aplicar estilos
             bubble.style.width = `${size}px`;
@@ -23,8 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
             bubble.style.bottom = `-${size}px`;
             bubble.style.animationDelay = `${delay}s`;
             bubble.style.animationDuration = `${duration}s`;
-            bubble.style.opacity = Math.random() * 0.6 + 0.1;
+            bubble.style.opacity = Math.random() * 0.5 + 0.1;
+            bubble.style.filter = `blur(${Math.random() * 2}px)`;
             
+            // Adicionar bolha ao hero
             hero.appendChild(bubble);
         }
     }
@@ -43,6 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
     createWaves();
     createTwinklingStars();
     
+    // Recriar bolhas ao redimensionar a janela (com debounce para performance)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            createBubbles();
+        }, 250);
+    });
+    
     // Adicionar classe de animação nos cards
     document.querySelectorAll('.specialty-card').forEach((card, index) => {
         card.style.setProperty('--i', index);
@@ -54,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroTitle) {
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
-        heroTitle.style.backgroundImage = 'linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF)';
+        heroTitle.style.backgroundImage = 'linear-gradient(45deg,rgb(243, 127, 127),rgb(52, 252, 252),rgb(248, 125, 125),rgb(209, 148, 224),rgb(143, 248, 255),rgb(98, 175, 219),rgb(231, 161, 161))';
         heroTitle.style.webkitBackgroundClip = 'text';
         heroTitle.style.backgroundClip = 'text';
         heroTitle.style.color = 'transparent';
@@ -89,12 +114,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
     
     if (mobileMenuToggle) {
+        // Abrir/fechar menu mobile
         mobileMenuToggle.addEventListener('click', function() {
             mainNav.classList.toggle('active');
             this.querySelector('i').classList.toggle('fa-times');
             this.querySelector('i').classList.toggle('fa-bars');
+            
+            // Desativar scroll do body quando o menu estiver aberto
+            if (mainNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Fechar menu ao clicar em um link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            });
         });
     }
 
@@ -181,29 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
             confetti.style.position = 'fixed';
             confetti.style.left = `${startX}px`;
             confetti.style.top = `${startY}px`;
-            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
             
-            // Adicionar ao body
-            document.body.appendChild(confetti);
-            
-            // Animação
-            const angle = Math.random() * Math.PI * 2;
-            const velocity = 5 + Math.random() * 5;
-            const rotation = Math.random() * 360;
-            
-            const animation = confetti.animate([
-                {
-                    transform: `translate(0, 0) rotate(0deg)`,
-                    opacity: 1
-                },
-                {
-                    transform: `translate(${Math.cos(angle) * 100}px, ${Math.sin(angle) * 100 - 100}px) rotate(${rotation}deg)`,
-                    opacity: 0
-                }
-            ], {
-                duration: 1000 + Math.random() * 1000,
-                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
-            });
+            // Animação de confete
             
             // Remover após a animação
             animation.onfinish = () => confetti.remove();
@@ -211,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Adicionar evento de clique nos botões
-    document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', (e) => {
             createConfetti(button);
         });
@@ -369,4 +391,3 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
-});

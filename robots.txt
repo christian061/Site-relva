@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://relvafono.com.br/sitemap.xml
+
+# Bloquear pastas desnecessárias
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /logs/
+Disallow: /private/
+Disallow: /tmp/
+
+# Bloquear arquivos específicos
+Disallow: /wp-admin/
+Disallow: /wp-content/plugins/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /readme.html
+
+# Taxa de rastreamento (opcional)
+Crawl-delay: 10

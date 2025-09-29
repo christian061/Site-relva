@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relva Fonodiologia - Especialistas em Voz e Audição</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Otimizar carregamento de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Carregar Font Awesome de forma otimizada -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
+    <!-- Carregar Slick Carousel de forma otimizada -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    </noscript>
 </head>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="contact-info">
-                <span><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Centro, Cidade/SP</span>
-                <span><i class="fas fa-phone"></i> (00) 1234-5678</span>
-                <a href="https://api.whatsapp.com/send?phone=556183448145&text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20fonoaudiol%C3%B3gico." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> (00) 99999-9999</a>
+                <span><i class="fas fa-map-marker-alt"></i> SEPS Q 705/905 Centro Empresarial, Mont Blanc 705/905, Sala 26 - Asa Sul - Brasília - DF</span>
+                </span>
+                <a href="https://api.whatsapp.com/send?phone=556183448145&text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20fonoaudiol%C3%B3gico." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> (61) 98344-8145</a>
             </div>
             <div class="social-links">
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -38,7 +51,6 @@
                     <li><a href="#inicio" class="active">Início</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#equipe">Equipe</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -84,6 +96,12 @@
                     <p>Acompanhamento do desenvolvimento da fala e linguagem.</p>
                 </div>
             </div>
+            
+<!-- Efeito de Batimento Cardíaco -->
+            <div class="sound-wave-divider">
+                <div class="heartbeat-line"></div>
+            </div>
+            
         </div>
     </section>
 
@@ -93,11 +111,20 @@
             <h2 class="section-title">Sobre Nós</h2>
             <div class="about-wrapper">
                 <div class="about-image">
-                    <img src="images/equipe.png" alt="Nossa Equipe">
+                    <img 
+                        src="./images/relva.png" 
+                        alt="Relva" 
+                        loading="eager" 
+                        width="600" 
+                        height="400"
+                        style="max-width: 100%; height: auto; display: block; border-radius: 10px;"
+                        onerror="console.error('Erro ao carregar a imagem:', this.src)"
+                    >                 
+
                 </div>
                 <div class="about-content">
-                    <p>A Relva Fonodiologia é uma clínica especializada em fonoaudiologia, comprometida com a excelência no atendimento e resultados efetivos para nossos pacientes.</p>
-                    <p>Nossa equipe é formada por profissionais altamente qualificados e atualizados com as mais modernas técnicas de avaliação e tratamento.</p>
+                    <p>A <span class="rosa">Relva</span> Fonodiologia é uma clínica especializada em fonoaudiologia, comprometida com a excelência no atendimento e resultados efetivos para nossos pacientes.</p>
+                    <p>Profissional altamente qualificada e atualizada com as mais modernas técnicas de avaliação e tratamento.</p>
                     <div class="about-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -121,124 +148,96 @@
         </div>
     </section>
 
-    <!-- Google Meu Negócio -->
-    <section class="google-business" id="avaliacoes">
+    <!-- Avaliações -->
+    <section class="reviews-section" id="avaliacoes">
         <div class="container">
-            <h2 class="section-title">Nossas Avaliações</h2>
-            <div class="google-business-widget" style="text-align: center; margin: 30px 0;">
-                <a href="https://share.google/EKbXnR8eXBRtlAUcV" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block; margin-bottom: 20px; text-decoration: none;">
-                    <i class="fas fa-star" style="margin-right: 8px;"></i> Deixe sua Avaliação
-                </a>
-                <div class="google-reviews" style="background: transparent; padding: 30px 0; position: relative;">
-                    <div class="reviews-slider" style="max-width: 1200px; margin: 0 auto; padding: 20px 0;">
-                        <!-- Avaliação 1 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #4285F4;"></i>
-                                    <div>
-                                        <div class="review-name">Ana Carolina</div>
-                                        <div class="review-date">Há 1 semana</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Excelente atendimento! Minha filha adorou as sessões e já notamos uma melhora significativa na fala."</p>
+            <h2 class="section-title">O que dizem sobre nós</h2>
+            <div class="reviews-container">
+                <div class="reviews-grid">
+                    <!-- Avaliação 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar" style="background-color: #4285F4;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Ana Carolina</h4>
+                                <div class="review-date">Há 1 semana</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
-                        
-                        <!-- Avaliação 2 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #34A853;"></i>
-                                    <div>
-                                        <div class="review-name">Carlos Eduardo</div>
-                                        <div class="review-date">Há 2 semanas</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Profissionais muito atenciosos e qualificados. Meu filho adora as sessões!"</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Avaliação 3 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #EA4335;"></i>
-                                    <div>
-                                        <div class="review-name">Mariana Silva</div>
-                                        <div class="review-date">Há 3 semanas</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Clínica maravilhosa! Atendimento humanizado e profissionais extremamente competentes."</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Avaliação 4 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #FBBC05;"></i>
-                                    <div>
-                                        <div class="review-name">Roberto Almeida</div>
-                                        <div class="review-date">Há 1 mês</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Incrível o trabalho realizado com meu filho. Em poucas semanas já vimos resultados impressionantes!"</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Avaliação 5 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #4285F4;"></i>
-                                    <div>
-                                        <div class="review-name">Juliana Mendes</div>
-                                        <div class="review-date">Há 2 meses</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Ambiente acolhedor e profissionais excelentes. Recomendo muito a todos que precisam de atendimento fonoaudiólogo."</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Avaliação 6 -->
-                        <div class="review-slide">
-                            <div class="review-content">
-                                <div class="review-header">
-                                    <i class="fas fa-user-circle" style="color: #34A853;"></i>
-                                    <div>
-                                        <div class="review-name">Fernanda Oliveira</div>
-                                        <div class="review-date">Há 2 meses</div>
-                                    </div>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <p class="review-text">"Minha experiência foi incrível! O atendimento é diferenciado e os resultados são visíveis rapidamente."</p>
-                            </div>
+                        <div class="review-body">
+                            <p class="review-text">"Excelente atendimento! Minha filha adorou as sessões e já notamos uma melhora significativa na fala."</p>
                         </div>
                     </div>
-                    <p style="margin-top: 25px; color: #fff; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-                        <a href="https://share.google/EKbXnR8eXBRtlAUcV" target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none; font-weight: 500;">
-                            <i class="fab fa-google" style="margin-right: 5px;"></i> Ver mais avaliações no Google
-                        </a>
-                    </p>
+                    
+                    <!-- Avaliação 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar" style="background-color: #34A853;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Carlos Eduardo</h4>
+                                <div class="review-date">Há 2 semanas</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">"Profissionais muito atenciosos e qualificados. Meu filho adora as sessões!"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Avaliação 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar" style="background-color: #EA4335;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Mariana Silva</h4>
+                                <div class="review-date">Há 3 semanas</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">"Clínica maravilhosa! Atendimento humanizado e profissionais extremamente competentes."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Avaliação 4 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar" style="background-color: #FBBC05;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Roberto Almeida</h4>
+                                <div class="review-date">Há 1 mês</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">"Incrível o trabalho realizado com meu filho. Em poucas semanas já vimos resultados impressionantes!"</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="review-buttons">
+                <a href="https://share.google.com/EKbXnR8eXBRtlAUcV" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fas fa-star"></i> Deixe sua Avaliação
+                </a>
+                <a href="https://share.google.com/EKbXnR8eXBRtlAUcV" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                    <i class="fab fa-google"></i> Ver mais avaliações no Google
+                </a>
             </div>
         </div>
     </section>
@@ -254,7 +253,7 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <h4>Telefone</h4>
-                        <p>(61) 8344-8145</p>
+                        <p>(61) 98344-8145</p>
                     </div>
                 </div>
                 
@@ -262,7 +261,7 @@
                     <i class="fab fa-whatsapp"></i>
                     <div>
                         <h4>WhatsApp</h4>
-                        <p>(61) 8344-8145</p>
+                        <p>(61) 98344-8145</p>
                     </div>
                 </div>
                 
@@ -298,11 +297,11 @@
             </div>
             
             <div class="contact-form" style="text-align: center; padding: 20px 0; margin-top: 20px;">
-                <h3 style="margin-bottom: 15px; color: #333;">Entre em contato conosco</h3>
+                <h3 style="margin-bottom: 15px; color: #645e5e;">Entre em contato conosco</h3>
                 <p style="margin-bottom: 20px; color: #555;">Clique no botão abaixo para falar diretamente pelo WhatsApp</p>
                 <a href="https://api.whatsapp.com/send?phone=556183448145&text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20fonoaudiol%C3%B3gico." 
                    class="btn btn-primary" 
-                   style="background-color: #25D366; border: none; padding: 12px 30px; font-size: 16px; font-weight: 600;"
+                   style="background-color: #9be2b5; border: none; padding: 12px 30px; font-size: 16px; font-weight: 600;"
                    target="_blank" 
                    rel="noopener noreferrer">
                     <i class="fab fa-whatsapp" style="margin-right: 8px; font-size: 20px;"></i> Falar pelo WhatsApp
@@ -316,7 +315,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>Relva <span>Fonodiologia</span></h3>
+                    <h3><span class="rosa">Relva</span> <span>Fonodiologia</span></h3>
                     <p>Cuidando da sua voz e audição com excelência e carinho.</p>
                 </div>
                 <div class="footer-links">
@@ -324,15 +323,14 @@
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#especialidades">Especialidades</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#equipe">Equipe</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>                        
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contato</h4>
-                    <p><i class="fas fa-phone"></i> +55 (61) 8344-8145</p>
-                    <p><i class="fab fa-whatsapp"></i>+55 (61) 8344-8145</p>
+                    <p><i class="fas fa-phone"></i> +55 (61) 98344-8145</p>
+                    <p><i class="fab fa-whatsapp"></i>+55 (61) 98344-8145</p>
                     <p><i class="fas fa-envelope"></i> contato@relvafono.com.br</p>
                     <p><i class="fas fa-map-marker-alt"></i>  SEPS Q 705/905 Centro Empresarial, Mont Blanc 705/905, Sala 26 - Asa Sul, Brasília - DF, 70390-055</p>
                 </div>
@@ -340,15 +338,16 @@
                     <h4>Horário de Atendimento</h4>
                     <p>Segunda a Sexta: 8h às 18h</p>
                     <p>Sábado: 8h às 12h</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/fonorelvaloup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
                 </div>
             </div>
+            <div class="footer-indicators">
+                <div class="footer-indicator"></div>
+                <div class="footer-indicator"></div>
+                <div class="footer-indicator"></div>
+                <div class="footer-indicator"></div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Relva Fonodiologia. Todos os direitos reservados.</p>
+                <p>&copy; 2023 <span class="rosa">Relva</span> Fonodiologia. Todos os direitos reservados.</p>
                 <div class="footer-credits">
                     <p>Desenvolvido por <a href="https://criart.site/" target="_blank" rel="noopener noreferrer">Criart</a></p>
                 </div>
@@ -362,42 +361,45 @@
     </a>
 
     <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/mobile.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            $('.reviews-slider').slick({
+        $(document).ready(function() {
+            $('.reviews-grid').slick({
                 dots: true,
                 infinite: true,
-                speed: 800,
+                speed: 5000, // Velocidade da transição lenta para rolagem contínua
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 autoplay: true,
-                autoplaySpeed: 3500,
-                pauseOnHover: true,
+                autoplaySpeed: 0, // Sem pausa entre as transições
+                pauseOnHover: false,
                 pauseOnFocus: false,
                 arrows: true,
-                centerMode: true,
-                centerPadding: '40px',
+                centerMode: false,
+                centerPadding: '0',
                 prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-                cssEase: 'ease-in-out',
-                variableWidth: false,
+                cssEase: 'linear', // Transição linear para movimento contínuo
+                draggable: true,
+                swipe: true,
+                touchMove: true,
+                waitForAnimate: false,
+                useTransform: true,
+                fade: false,
+                easing: 'linear',
                 responsive: [
                     {
                         breakpoint: 1200,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1,
-                            centerMode: false
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            centerMode: true
+                            infinite: true,
+                            dots: true,
+                            speed: 5000,
+                            autoplaySpeed: 0
                         }
                     },
                     {
@@ -405,15 +407,22 @@
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1,
+                            arrows: false,
                             centerMode: true,
                             centerPadding: '20px',
-                            arrows: false
+                            speed: 5000,
+                            autoplaySpeed: 0
                         }
                     }
                 ]
             });
+            
+            // Forçar redesenho para corrigir problemas de layout
+            setTimeout(function() {
+                $('.reviews-grid').slick('setPosition');
+            }, 100);
         });
     </script>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

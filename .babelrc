@@ -1,0 +1,20 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage",
+      "corejs": 3,
+      "targets": {
+        "browsers": [
+          ">0.2%",
+          "not dead",
+          "not op_mini all"
+        ]
+      }
+    }]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-transform-react-jsx", { "pragma": "h" }]
+  ]
+}
