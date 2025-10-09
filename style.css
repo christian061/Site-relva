@@ -505,12 +505,19 @@ img {
     }
 
     .hero {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/relva mobile.png') no-repeat center center/cover;
+        background-color: #1a1a2e;
         background-size: cover;
         background-position: center center;
         height: 80vh;
         min-height: 500px;
         margin-top: 80px;
         filter: brightness(0.8);
+    }
+    
+    /* Remove efeito de onda no mobile */
+    .wave {
+        display: none !important;
     }
     
     .hero-content {
@@ -1612,6 +1619,21 @@ img {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Desktop: Organiza os métodos de contato em coluna vertical */
+@media (min-width: 769px) {
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-method {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
 }
 
 .contact-method:hover {
@@ -2731,7 +2753,7 @@ img {
 
 .space-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -2756,6 +2778,8 @@ img {
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
+    display: block;
+    background-color: #f0f0f0;
 }
 
 .space-image:hover img {
@@ -2788,7 +2812,7 @@ img {
 /* Responsive adjustments for Space Section */
 @media (max-width: 768px) {
     .space-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 20px;
     }
