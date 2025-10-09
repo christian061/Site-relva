@@ -527,7 +527,7 @@ img {
     }
 
     .hero h2 {
-        font-size: var(--text-4xl);
+        font-size: 1.4rem;
         margin-bottom: 1rem;
         line-height: 1.2;
     }
@@ -2420,7 +2420,7 @@ img {
     }
     
     .hero h2 {
-        font-size: 2.5rem;
+        font-size: 2.0rem;
     }
     
     .hero p {
@@ -2714,7 +2714,7 @@ img {
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2.2rem !important;
     }
     
     .section-title {
@@ -2734,7 +2734,7 @@ img {
     }
 }
 
-/* Space Section */
+/* Space Section - Carousel */
 .space-section {
     padding: 100px 0;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -2751,12 +2751,24 @@ img {
     margin-right: auto;
 }
 
-.space-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+.space-carousel-container {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+.space-carousel {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.space-slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 15px;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .space-image {
@@ -2766,6 +2778,7 @@ img {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     aspect-ratio: 4/3;
+    cursor: pointer;
 }
 
 .space-image:hover {
@@ -2777,7 +2790,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     display: block;
     background-color: #f0f0f0;
 }
@@ -2809,12 +2822,104 @@ img {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    pointer-events: all;
+    opacity: 0.8;
+}
+
+.carousel-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+}
+
+.prev-btn {
+    left: -25px;
+}
+
+.next-btn {
+    right: -25px;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.carousel-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
 /* Responsive adjustments for Space Section */
+@media (max-width: 1024px) {
+    .space-slide {
+        flex: 0 0 calc(100% / 2);
+    }
+    
+    .prev-btn {
+        left: -15px;
+    }
+    
+    .next-btn {
+        right: -15px;
+    }
+}
+
 @media (max-width: 768px) {
-    .space-gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 20px;
+    .space-slide {
+        flex: 0 0 100%;
+        padding: 0 10px;
     }
     
     .space-section {
@@ -2830,18 +2935,26 @@ img {
     .space-overlay h3 {
         font-size: 1rem;
     }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .prev-btn {
+        left: 10px;
+    }
+    
+    .next-btn {
+        right: 10px;
+    }
 }
 
 @media (max-width: 480px) {
-    .space-gallery {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
     .space-section .section-subtitle {
         font-size: 1rem;
         margin-bottom: 30px;
         padding: 0 20px;
     }
 }
-

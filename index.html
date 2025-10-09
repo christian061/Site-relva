@@ -4,17 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relva Loup Fonoaudióloga Infantil - Especialista em Voz e Audição</title>
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- CSS crítico inline para evitar FOUC -->
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
     
     <!-- Otimizar carregamento de fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Carregar Font Awesome de forma otimizada -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <!-- Carregar Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Preload das primeiras imagens do carrossel -->
+    <link rel="preload" href="images/img1.jpg" as="image">
+    <link rel="preload" href="images/img2.jpg" as="image">
+    <link rel="preload" href="images/img3.jpg" as="image">
     
 </head>
 <body>
@@ -156,33 +182,84 @@
     <!-- Espaço -->
     <section class="space-section" id="espaco">
         <div class="container">
-            <h2 class="section-title">Espaço</h2>
-            <p class="section-subtitle">Conheça o ambiente acolhedor onde realizamos os atendimentos</p>
-            <div class="space-gallery">
-                <div class="space-image">
-                    <img src="images/img1.jpg" alt="Espaço de atendimento 1" loading="eager">
-                    <div class="space-overlay">
-                        <h3>Sala de Atendimento</h3>
+            <h2 class="section-title">Um pouco do espaço de atendimento</h2>
+            <p class="section-subtitle"></p>
+            <div class="space-carousel-container">
+                <div class="space-carousel">
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img1.jpg" alt="Espaço de atendimento 1" loading="eager">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img2.jpg" alt="Espaço de atendimento 2" loading="eager">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img3.jpg" alt="Espaço de atendimento 3" loading="eager">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img4.jpg" alt="Espaço de atendimento 4" loading="eager">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img5.jpg" alt="Espaço de atendimento 5" loading="eager" onerror="console.error('Erro ao carregar img5:', this.src)">
+                            <div class="space-overlay">
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img6.jpg" alt="Espaço de atendimento 6" loading="eager" onerror="console.error('Erro ao carregar img6:', this.src)">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img7.jpg" alt="Espaço de atendimento 7" loading="eager" onerror="console.error('Erro ao carregar img7:', this.src)">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-slide">
+                        <div class="space-image">
+                            <img src="images/img8.jpg" alt="Espaço de atendimento 8" loading="eager" onerror="console.error('Erro ao carregar img8:', this.src)">
+                            <div class="space-overlay">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="space-image">
-                    <img src="images/img3.jpg" alt="Espaço de atendimento 2" loading="eager">
-                    <div class="space-overlay">
-                        <h3>Área Lúdica</h3>
-                    </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" aria-label="Imagem anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" aria-label="Próxima imagem">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="space-image">
-                    <img src="images/img2.jpg" alt="Espaço de atendimento 3" loading="eager">
-                    <div class="space-overlay">
-                        <h3>Recepção</h3>
-                    </div>
-                </div>
-                <div class="space-image">
-                    <img src="images/img4.jpg" alt="Espaço de atendimento 4" loading="eager">
-                    <div class="space-overlay">
-                        <h3>Ambiente Terapêutico</h3>
-                    </div>
-                </div>
+                <div class="carousel-dots"></div>
             </div>
         </div>
     </section>
@@ -217,31 +294,33 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Quanto tempo dura o tratamento?</span>
+                        <span>Quais são as possíveis causas subjacentes das trocas na fala ou do atraso motor de fala do meu filho?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>A duração do tratamento varia conforme a necessidade de cada criança e a complexidade do caso. Alguns casos podem ser resolvidos em alguns meses, enquanto outros podem necessitar de acompanhamento mais prolongado. A evolução é avaliada continuamente.</p>
+                        <p>As causas podem variar, desde questões neurológicas até fatores ambientais ou genéticos. Durante a avaliação, trabalharemos para identificar as causas específicas que estão contribuindo para os desafios de fala do seu filho.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>As sessões são individuais ou em grupo?</span>
+                        <span>Quais são as expectativas realistas de resultados para o meu filho?
+                        </span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>As sessões são individuais, proporcionando um atendimento personalizado e focado nas necessidades específicas de cada criança. Isso permite um melhor acompanhamento e evolução do tratamento.</p>
+                        <p>As expectativas de resultados variam de acordo com a situação única de cada criança. Nosso objetivo é melhorar a comunicação e a qualidade de vida de seu filho, e trabalharemos arduamente para alcançar esses objetivos juntos.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Os pais podem acompanhar as sessões?</span>
+                        <span>Existem estratégias específicas que podemos implementar em casa para promover o desenvolvimento da fala do meu filho?
+                        </span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Sim! A participação dos pais é muito importante e incentivada. Dependendo da idade da criança e do objetivo terapêutico, os pais podem acompanhar as sessões e receber orientações para continuar os exercícios em casa.</p>
+                        <p>Sim, recomendamos práticas regulares de fala em casa, como leitura em voz alta, jogos de linguagem e outras atividades interativas que promovam a comunicação e a articulação. Além das estratégias previamente indicadas para casa pela fonoaudióloga.</p>
                     </div>
                 </div>
             </div>
@@ -369,6 +448,19 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/mobile.js" defer></script>
     <script>
+        // Mostrar o body quando tudo estiver carregado
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+        
+        // Fallback caso demore muito para carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+    <script>
         // FAQ Accordion
         document.addEventListener('DOMContentLoaded', function() {
             const faqQuestions = document.querySelectorAll('.faq-question');
@@ -389,6 +481,174 @@
                     }
                 });
             });
+        });
+
+        // Space Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.space-carousel');
+            const slides = document.querySelectorAll('.space-slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let slidesToShow = 3; // Default for desktop
+            
+            console.log('Carrossel inicializado com', totalSlides, 'slides');
+            
+            // Create dots
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const totalDots = Math.ceil(totalSlides / slidesToShow);
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    dot.addEventListener('click', () => goToSlide(i * slidesToShow));
+                    dotsContainer.appendChild(dot);
+                }
+                updateDots();
+            }
+            
+            // Update dots
+            function updateDots() {
+                const dots = document.querySelectorAll('.carousel-dot');
+                const activeDotIndex = Math.floor(currentIndex / slidesToShow);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDotIndex);
+                });
+            }
+            
+            // Update slides to show based on screen size
+            function updateSlidesToShow() {
+                if (window.innerWidth <= 768) {
+                    slidesToShow = 1;
+                } else if (window.innerWidth <= 1024) {
+                    slidesToShow = 2;
+                } else {
+                    slidesToShow = 3;
+                }
+                createDots();
+                goToSlide(0);
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = Math.max(0, Math.min(index, totalSlides - slidesToShow));
+                const translateX = -(currentIndex * (100 / slidesToShow));
+                carousel.style.transform = `translateX(${translateX}%)`;
+                updateDots();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                if (currentIndex < totalSlides - slidesToShow) {
+                    goToSlide(currentIndex + 1);
+                } else {
+                    goToSlide(0); // Loop back to start
+                }
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                } else {
+                    goToSlide(totalSlides - slidesToShow); // Loop to end
+                }
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Touch/swipe support
+            let startX = 0;
+            let isDragging = false;
+            
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            });
+            
+            carousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const endX = e.changedTouches[0].clientX;
+                const diffX = startX - endX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            });
+            
+            // Mouse drag support
+            let mouseStartX = 0;
+            let isMouseDragging = false;
+            
+            carousel.addEventListener('mousedown', (e) => {
+                mouseStartX = e.clientX;
+                isMouseDragging = true;
+                carousel.style.cursor = 'grabbing';
+            });
+            
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isMouseDragging) return;
+                e.preventDefault();
+            });
+            
+            carousel.addEventListener('mouseup', (e) => {
+                if (!isMouseDragging) return;
+                isMouseDragging = false;
+                carousel.style.cursor = 'grab';
+                
+                const diffX = mouseStartX - e.clientX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                isMouseDragging = false;
+                carousel.style.cursor = 'grab';
+            });
+            
+            // Auto-play (optional)
+            let autoPlayInterval;
+            
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+            
+            // Pause auto-play on hover
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+            
+            // Responsive handling
+            window.addEventListener('resize', updateSlidesToShow);
+            
+            // Initialize
+            updateSlidesToShow();
+            startAutoPlay();
         });
     </script>
     <script src="script.js"></script>

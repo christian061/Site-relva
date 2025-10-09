@@ -1,6 +1,6 @@
-# Relva Fonodiologia - Website
+# Fonoaudióloga Infantil - Website
 
-Este é o site oficial da Relva Fonodiologia, desenvolvido com HTML5, CSS3 e JavaScript puro, sem a necessidade de frameworks adicionais.
+Este é o site oficial da Relva Loup Fonoaudióloga Infantil, desenvolvido com HTML5, CSS3 e JavaScript puro, sem a necessidade de frameworks adicionais.
 
 ## Estrutura do Projeto
 
