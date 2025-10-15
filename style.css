@@ -3278,6 +3278,19 @@ img {
     }
 }
 
+/* Loading Reviews */
+.loading-reviews {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.loading-reviews p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
 /* Otimizações Mobile Adicionais */
 @media (max-width: 768px) {
     /* Prevenir overflow horizontal */
