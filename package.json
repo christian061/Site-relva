@@ -25,6 +25,7 @@
     "@babel/runtime": "^7.15.4",
     "core-js": "^3.18.3",
     "jquery": "^3.6.0",
+    "postcss-import": "^16.1.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

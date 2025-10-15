@@ -227,13 +227,26 @@ document.addEventListener('DOMContentLoaded', function() {
             confetti.style.top = `${startY}px`;
             
             // Animação de confete
+            const animation = confetti.animate([
+                { transform: `translate(0, 0)`, opacity: 1 },
+                { 
+                    transform: `translate(${(Math.random() - 0.5) * 200}px, ${Math.random() * 200 + 100}px)`, 
+                    opacity: 0 
+                }
+            ], {
+                duration: Math.random() * 1000 + 1000,
+                easing: 'ease-out'
+            });
             
             // Remover após a animação
             animation.onfinish = () => confetti.remove();
+            
+            document.body.appendChild(confetti);
         }
     }
     
     // Adicionar evento de clique nos botões
+    document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', (e) => {
             createConfetti(button);
         });
@@ -391,3 +404,4 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+});
