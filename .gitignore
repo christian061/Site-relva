@@ -125,3 +125,6 @@ yarn-error.log*
 # Arquivos temporários
 .temp/
 .tmp/
+
+# Local Netlify folder
+.netlify
